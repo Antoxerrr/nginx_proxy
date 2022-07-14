@@ -21,3 +21,8 @@ services:
       - html:/usr/share/nginx/html
     environment:
       - DEFAULT_EMAIL=emingaliev@i-neti.ru
+
+volumes:
+  certs:
+  vhost:
+  html:
