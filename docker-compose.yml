@@ -12,6 +12,8 @@ services:
       - certs:/etc/nginx/certs
       - vhost:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
+    networks:
+      - nginx-proxy
   acme-companion:
     image: nginxproxy/acme-companion
     volumes:
@@ -24,6 +26,11 @@ services:
       - DEFAULT_EMAIL=emingaliev@i-neti.ru
       - LETSENCRYPT_EMAIL=emingaliev@i-neti.ru
       - NGINX_PROXY_CONTAINER=nginx_proxy_nginx-proxy_1
+    depends_on:
+      - nginx-proxy
+
+networks:
+    nginx-proxy:
 
 volumes:
   certs:
