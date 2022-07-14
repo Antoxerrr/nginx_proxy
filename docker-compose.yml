@@ -31,7 +31,7 @@ services:
 
 networks:
     nginx-proxy:
-      name: nginx-proxy
+      name: net-nginx-proxy
 
 volumes:
   certs:
