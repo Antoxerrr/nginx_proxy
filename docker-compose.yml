@@ -7,6 +7,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      # Для передачи информации Zabbix'у
+      - "9051:9051"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - certs:/etc/nginx/certs
