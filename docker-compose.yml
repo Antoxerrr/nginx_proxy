@@ -4,6 +4,7 @@ version: "3.9"
 services:
   nginx-proxy:
     build: ./nginx-proxy
+    restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
@@ -18,6 +19,7 @@ services:
       - nginx-proxy
   acme-companion:
     image: nginxproxy/acme-companion
+    restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - certs:/etc/nginx/certs
